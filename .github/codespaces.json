@@ -1,0 +1,13 @@
+{
+    "workspaces": [
+      {
+        "name": "Angular DevContainer",
+        "path": ".devcontainer/app"
+      },
+      {
+        "name": "Java DevContainer",
+        "path": ".devcontainer/api"
+      }
+    ]
+  }
+  
