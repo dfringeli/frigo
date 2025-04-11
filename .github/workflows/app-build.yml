@@ -29,7 +29,9 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+    
+    - name: List contents of the app directory
+      run: ls -la
     
     - name: Install dependencies
       run: npm ci
