@@ -2,6 +2,7 @@
 
 Manage your food in your frigo
 
+[![Build App](https://github.com/dfringeli/frigo/actions/workflows/app-build.yml/badge.svg)](https://github.com/dfringeli/frigo/actions/workflows/app-build.yml)
 [![Build API](https://github.com/dfringeli/frigo/actions/workflows/api-build.yml/badge.svg)](https://github.com/dfringeli/frigo/actions/workflows/api-build.yml)
 
 ## Functional Requirements
