@@ -1,23 +1,23 @@
 services:
   app:
-    image: node:22 # ghcr.io/devcontainers/templates/typescript-node:22
-    ports:
-      - "4200:4200"
+    image: node:22
     volumes:
       - ./app:/workspace/app
     working_dir: /workspace/app
-    command: ["npm", "start"]
+    command: sleep infinity
+    environment:
+      - NODE_ENV=development
     depends_on:
       - api
 
   api:
-    image: eclipse-temurin:24 # ghcr.io/devcontainers/templates/java:24-jdk
-    ports:
-      - "8080:8080"
+    image: eclipse-temurin:24
     volumes:
       - ./api:/workspace/api
     working_dir: /workspace/api
-    command: "./mvnw spring-boot:run"
+    command: sleep infinity
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
     depends_on:
       - db
 

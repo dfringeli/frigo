@@ -1,0 +1,26 @@
+{
+    "name": "App Dev Container",
+    "dockerComposeFile": ["../../docker-compose.yml"],
+    "service": "app",
+    "workspaceFolder": "/workspace/app",
+    "mounts": [
+        "source=${localWorkspaceFolder}/..,target=/workspace,type=bind,parent=true"
+    ],
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers-extra/features/angular-cli:2": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "angular.ng-template",
+                "github.copilot",
+                "github.copilot-chat"
+            ]
+        }
+    },
+    "postCreateCommand": "npm i -g npm@11.2.0 && npm install",
+    "forwardPorts": [4200]
+}
