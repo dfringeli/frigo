@@ -1,4 +1,4 @@
-name: Build Spring Boot App
+name: Build API
 
 on:
   push:
@@ -23,8 +23,8 @@ jobs:
         distribution: 'temurin'
         java-version: '24'
 
-    - name: Build with Maven
-      run: mvn clean package -DskipTests
+    - name: Build
+      run: mvn clean package
 
     - name: Upload JAR artifact
       uses: actions/upload-artifact@v4
