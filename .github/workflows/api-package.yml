@@ -5,6 +5,9 @@ on:
     types: [created]
 
 jobs:
+  build:
+    uses: ./.github/workflows/api-build.yml
+
   package:
     runs-on: ubuntu-latest
     permissions:

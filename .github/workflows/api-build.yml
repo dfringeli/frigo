@@ -1,4 +1,4 @@
-name: Build API
+name: API Build
 
 on:
   push:
@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_call:
 
 jobs:
   build:
@@ -34,4 +35,3 @@ jobs:
       with:
         name: frigo-api-jar
         path: target/*.jar
-        retention-days: 7
