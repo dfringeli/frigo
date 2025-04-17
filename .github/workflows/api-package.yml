@@ -16,18 +16,17 @@ jobs:
       contents: read
       packages: write
 
-    defaults:
-      run:
-        working-directory: api
-
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
       - name: Download JAR artifact
         uses: actions/download-artifact@v4
         with:
           name: frigo-api
-          path: ./api/target/
-
-      - run: ls $GITHUB_WORKSPACE
+      
+      - name: List downloaded files
+        run: ls -la
       
       - name: Set up Java
         uses: actions/setup-java@v4
@@ -38,6 +37,7 @@ jobs:
           settings-path: ${{ github.workspace }}
 
       - name: Publish to GitHub Packages Apache Maven
+        working-directory: api
         run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
         env:
           GITHUB_TOKEN: ${{ github.token }}
