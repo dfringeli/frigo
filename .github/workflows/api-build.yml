@@ -33,5 +33,5 @@ jobs:
     - name: Upload JAR artifact
       uses: actions/upload-artifact@v4
       with:
-        name: frigo-api-jar
+        name: frigo-api
         path: ./api/target/*.jar
