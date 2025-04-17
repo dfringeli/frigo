@@ -28,6 +28,10 @@ jobs:
         with:
           name: frigo-api
           path: ./api/target/
+      
+      - run: pwd
+      - run: ls -al
+      - run: ls -al ./api/target
 
       - name: Publish to GitHub Packages Apache Maven
         run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
