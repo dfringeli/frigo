@@ -10,6 +10,7 @@ jobs:
 
   package:
     runs-on: ubuntu-latest
+    needs: build
     permissions:
       contents: read
       packages: write
@@ -23,7 +24,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: frigo-api
-          path: target
+          path: ./api/target/
 
       - name: Publish to GitHub Packages Apache Maven
         run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
