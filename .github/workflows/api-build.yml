@@ -23,8 +23,8 @@ jobs:
     - name: Set up Java
       uses: actions/setup-java@v4
       with:
-        distribution: 'temurin'
-        java-version: '24'
+        distribution: temurin
+        java-version: 24
 
     - name: Build
       run: mvn clean package
@@ -32,6 +32,6 @@ jobs:
     - name: Upload JAR artifact
       uses: actions/upload-artifact@v4
       with:
-        name: spring-boot-jar
-        path: api/target/*.jar
+        name: frigo-api-jar
+        path: target/*.jar
         retention-days: 7
