@@ -64,20 +64,20 @@ There a user can:
 
 ### Software architecture specific requirements
 
-The application is a ecosystem of:
+The application is an ecosystem of:
  - a website (desktop and mobile) called app
  - a server component called api
  - a database
 
 Folder structure:
+```
 frigo/
-├── docs/
-├── app/
-├── api/
-├── deployment/
-└── readme.md
+├── app
+├── api
+└── README.md
+```
 
-As source control managment a git repository is used. If no git repo exists yet, create a local one.
+As source control management, a git repository is used. If no git repo exists yet, create a local one.
 
 ### Technologies
 
