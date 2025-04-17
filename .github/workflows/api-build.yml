@@ -30,6 +30,9 @@ jobs:
     - name: Build
       run: mvn clean package
 
+    - name: Debug - List files in target
+      run: ls -al ./target
+
     - name: Upload JAR artifact
       uses: actions/upload-artifact@v4
       with:
