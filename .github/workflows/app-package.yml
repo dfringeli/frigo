@@ -3,7 +3,6 @@ name: App Package
 on:
   release:
     types: [created]
-  workflow_dispatch:
 
 jobs:
   package:
