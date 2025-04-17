@@ -21,9 +21,6 @@ jobs:
         working-directory: api
 
     steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
-
       - name: Download JAR artifact
         uses: actions/download-artifact@v4
         with:
@@ -37,12 +34,6 @@ jobs:
           java-version: 24
           server-id: github
           settings-path: ${{ github.workspace }}
-      
-      - run: pwd
-      - run: ls -al
-      - run: ls -al ./target
-      - run: echo $GITHUB_WORKSPACE
-      - run: ls $GITHUB_WORKSPACE
 
       - name: Publish to GitHub Packages Apache Maven
         run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ch.dfringeli</groupId>
-	<artifactId>frigo-api</artifactId>
+	<artifactId>frigo.api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>frigo</name>
+	<name>frigo.api</name>
 	<description>Manage your food in your frigo</description>
 	<url/>
 	<licenses>
