@@ -32,6 +32,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/dfringeli/frigo
 
       - run: ls -al
+      - run: ls -al frigo-app
+      - run: ls -al frigo-app/dist
       - run: npm --version
       - run: npm ci
       - run: npm publish
