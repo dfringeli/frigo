@@ -27,6 +27,8 @@ jobs:
           name: frigo-api
           path: ./api/target/
 
+      - run: ls $GITHUB_WORKSPACE
+      
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
