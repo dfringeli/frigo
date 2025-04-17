@@ -15,6 +15,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Ensure package-lock.json exists
+        run: |
+          if [ ! -f package-lock.json ]; then
+            echo "package-lock.json not found, running npm install to generate it."
+            npm install
+          fi
       - run: npm ci
 
   publish-gpr:
