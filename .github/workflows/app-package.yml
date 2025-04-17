@@ -17,6 +17,7 @@ jobs:
           node-version: 22
       - name: Ensure package-lock.json exists
         run: |
+          ls -l package-lock.json
           if [ ! -f package-lock.json ]; then
             echo "package-lock.json not found, running npm install to generate it."
             npm install
