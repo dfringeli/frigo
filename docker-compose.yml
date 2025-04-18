@@ -1,23 +1,19 @@
 services:
   app:
-    image: node:22
-    volumes:
-      - ./app:/workspace/app
-    working_dir: /workspace/app
-    command: sleep infinity
+    build: app
     environment:
       - NODE_ENV=development
+    ports:
+      - 4200:4200
     depends_on:
       - api
 
   api:
-    image: eclipse-temurin:24
-    volumes:
-      - ./api:/workspace/api
-    working_dir: /workspace/api
-    command: sleep infinity
+    build: api
     environment:
       - SPRING_PROFILES_ACTIVE=dev
+    ports:
+      - 8080:8080
     depends_on:
       - db
 

@@ -4,10 +4,11 @@
     "service": "api",
     "workspaceFolder": "/workspace/api",
     "mounts": [
-        "source=${localWorkspaceFolder}/..,target=/workspace,type=bind,parent=true"
+        "source=${localWorkspaceFolder},target=/workspace"
     ],
     "features": {
-        "ghcr.io/devcontainers/features/git:1": {}
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {}
     },
     "customizations": {
         "vscode": {
@@ -19,7 +20,5 @@
                 "github.copilot-chat"
             ]
         }
-    },
-    "postCreateCommand": "./mvnw dependency:go-offline",
-    "forwardPorts": [8080]
+    }
 }
