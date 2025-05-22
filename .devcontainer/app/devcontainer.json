@@ -3,13 +3,16 @@
     "dockerComposeFile": ["../compose.yaml"],
     "service": "app",
     "workspaceFolder": "/workspaces/frigo/app",
-    "forwardPorts": [
-        "80:80"
-    ],
+    "postCreateCommand": "npm -g install npm@latest && npm install -g @angular/cli",
     "features": {
         "ghcr.io/devcontainers/features/git:1": {},
         "ghcr.io/devcontainers/features/github-cli:1": {},
-        "ghcr.io/devcontainers-extra/features/angular-cli:2": {}
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "22"
+        },
+        "ghcr.io/devcontainers-extra/features/angular-cli:2": {
+            "version": "latest"
+        }
     },
     "customizations": {
         "vscode": {
