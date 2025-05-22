@@ -1,0 +1,36 @@
+services:
+  app:
+    image: mcr.microsoft.com/devcontainers/typescript-node:22-bookworm
+    volumes:
+      - ../app:/workspaces/frigo/app:cached
+    depends_on:
+      - api
+    command: sleep infinity
+
+  api:
+    image: mcr.microsoft.com/devcontainers/java:21-bookworm
+    volumes:
+      - ../api:/workspaces/frigo/api:cached
+    depends_on:
+      - db
+    command: sleep infinity
+
+  db:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: appdb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppassword
+    volumes:
+      - mariadb_data:/var/lib/mysql
+  
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - 81:8080
+
+volumes:
+  mariadb_data:

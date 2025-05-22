@@ -1,10 +1,10 @@
 {
     "name": "App Dev Container",
-    "dockerComposeFile": ["../../docker-compose.yml"],
+    "dockerComposeFile": ["../compose.yaml"],
     "service": "app",
-    "workspaceFolder": "/workspace/app",
-    "mounts": [
-        "source=${localWorkspaceFolder},target=/workspace"
+    "workspaceFolder": "/workspaces/frigo/app",
+    "forwardPorts": [
+        "80:80"
     ],
     "features": {
         "ghcr.io/devcontainers/features/git:1": {},
