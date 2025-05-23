@@ -2,8 +2,9 @@
     "name": "App Dev Container",
     "dockerComposeFile": ["../compose.yaml"],
     "service": "app",
+    "runServices": ["app", "db", "adminer"],
     "workspaceFolder": "/workspaces/frigo/app",
-    "postCreateCommand": "npm -g install npm@latest && npm install -g @angular/cli",
+    "postCreateCommand": "npm i -g @angular/cli",
     "features": {
         "ghcr.io/devcontainers/features/git:1": {},
         "ghcr.io/devcontainers/features/github-cli:1": {},
