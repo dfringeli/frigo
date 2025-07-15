@@ -2,7 +2,7 @@
     "name": "App Dev Container",
     "dockerComposeFile": ["../compose.yaml"],
     "service": "app",
-    "runServices": ["app", "db", "adminer"],
+    "runServices": ["app", "db", "adminer", "idp"],
     "workspaceFolder": "/workspaces/frigo/app",
     "postCreateCommand": "npm i -g @angular/cli && npm install -g npm",
     "features": {

@@ -2,7 +2,7 @@
     "name": "API Dev Container",
     "dockerComposeFile": ["../compose.yaml"],
     "service": "api",
-    "runServices": ["api", "db", "adminer"],
+    "runServices": ["api", "db", "adminer", "idp"],
     "workspaceFolder": "/workspaces/frigo/api",
     "features": {
         "ghcr.io/devcontainers/features/git:1": {},

@@ -22,9 +22,9 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: appdb
-      MYSQL_USER: appuser
-      MYSQL_PASSWORD: apppassword
+      MYSQL_DATABASE: frigo
+      MYSQL_USER: frigo
+      MYSQL_PASSWORD: frigo
     volumes:
       - mariadb_data:/var/lib/mysql
   
@@ -35,6 +35,17 @@ services:
       - 81:8080
     depends_on:
       - db
+
+  idp:
+    image: quay.io/keycloak/keycloak:latest
+    ports:
+      - 8888:8080
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+    volumes:
+      - ./idp/frigo-realm.json:/opt/keycloak/data/import/frigo-realm.json:ro
+    command: start-dev --import-realm
 
 volumes:
   mariadb_data:
