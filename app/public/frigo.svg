@@ -1,0 +1,67 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for the freezer box -->
+    <linearGradient id="freezerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f4f8;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#b8e0f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7cc7e8;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradient for the text -->
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Shadow filter -->
+    <filter id="dropshadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="2" dy="2" result="offset" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+    
+    <!-- Snowflake pattern -->
+    <pattern id="snowflakes" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r="0.5" fill="#ffffff" opacity="0.3"/>
+      <circle cx="15" cy="15" r="0.3" fill="#ffffff" opacity="0.4"/>
+      <circle cx="10" cy="18" r="0.4" fill="#ffffff" opacity="0.2"/>
+    </pattern>
+  </defs>
+  
+  <!-- Main freezer box -->
+  <rect x="60" y="40" width="80" height="120" 
+        fill="url(#freezerGradient)" 
+        stroke="#4a90e2" 
+        stroke-width="3" 
+        rx="8" 
+        filter="url(#dropshadow)"/>
+  
+  <!-- Freezer door handle -->
+  <rect x="125" y="50" width="6" height="30" 
+        fill="#2563eb" 
+        rx="3"/>
+  
+  <!-- Freezer compartment lines -->
+  <line x1="65" y1="90" x2="135" y2="90" stroke="#4a90e2" stroke-width="2" opacity="0.6"/>
+  <line x1="65" y1="120" x2="135" y2="120" stroke="#4a90e2" stroke-width="2" opacity="0.6"/>
+  
+  <!-- Snowflake overlay on freezer -->
+  <rect x="60" y="40" width="80" height="120" 
+        fill="url(#snowflakes)" 
+        rx="8"/>
+  
+  <!-- Ice crystals decoration -->
+  <g opacity="0.7">
+    <polygon points="75,55 79,59 75,63 71,59" fill="#ffffff"/>
+    <polygon points="110,75 114,79 110,83 106,79" fill="#ffffff"/>
+    <polygon points="85,135 89,139 85,143 81,139" fill="#ffffff"/>
+  </g>
+  
+
+</svg>

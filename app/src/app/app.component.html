@@ -1,21 +1,6 @@
-<div>
-  <h1>Frigo</h1>
-  <a routerLink="/hello" routerLinkActive="active">Hello</a>
-</div>
-<div>
-  <button class="button" (click)="login()">Login</button>
-</div>
-<div>
-  <button class="button" (click)="logout()">Logout</button>
-</div>
-<div>
-  <p>Is Authenticated? {{isAuthenticated}}</p>
-  @if(isAuthenticated) {
-    <p>Welcome {{userName}}!</p>
-  } @else {
-    <p>Please log in to continue.</p>
-  }
-</div>
-<div>
-  <router-outlet />
-</div>
+<header>
+  <app-navigation></app-navigation>
+</header>
+<main class="container">
+  <router-outlet></router-outlet>
+</main>

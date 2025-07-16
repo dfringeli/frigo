@@ -1,0 +1,38 @@
+<nav class="navbar is-info mb-4" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" routerLink="/">
+            Frigo
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMain" (click)="toggleNavbar()">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarMain" class="navbar-menu" [class.is-active]="navbarOpen">
+        <div class="navbar-start">
+            <a class="navbar-item" routerLink="/hello">Hello</a>
+        </div>
+
+        <div class="navbar-end">
+
+            @if (isAuthenticated) {
+            <p class="navbar-item">
+                Welcome {{userName}}!
+            </p>
+            <div class="navbar-item">
+                <button class="button is-light" (click)="logout()">Logout</button>
+            </div>
+            } @else {
+            <div class="navbar-item">
+                <div class="buttons">
+                    <button class="button is-primary" (click)="login()">Login</button>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</nav>
