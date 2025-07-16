@@ -3,6 +3,8 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { authConfig } from './auth/auth.config';
+import { provideAuth } from 'angular-auth-oidc-client';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,6 +15,7 @@ export const appConfig: ApplicationConfig = {
     ),
     provideHttpClient(
       withFetch()
-    )
+    ),
+    provideAuth(authConfig)
   ]
 };
