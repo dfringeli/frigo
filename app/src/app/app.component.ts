@@ -12,20 +12,16 @@ export class AppComponent implements OnInit {
   title = 'frigo';
   private readonly oidcSecurityService = inject(OidcSecurityService);
   isAuthenticated = false;
+  userName = '';
 
   ngOnInit() {
     this.oidcSecurityService
-    .checkAuth()
-    .subscribe(({ isAuthenticated, accessToken }) => {
-        console.log('app authenticated', isAuthenticated);
-        console.log(`Current access token is '${accessToken}'`);
-        this.oidcSecurityService.isAuthenticated$.subscribe(
-          ({ isAuthenticated }) => {
-            this.isAuthenticated = isAuthenticated;
-          }
-        );
+      .checkAuth()
+      .subscribe(({ isAuthenticated, userData }) => {
+        this.isAuthenticated = isAuthenticated;
+        this.userName = userData?.given_name || 'unkown';
       });
-    
+
   }
 
   login() {
@@ -33,6 +29,6 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
-    this.oidcSecurityService.logoff().subscribe((result) => console.log(result));
+    this.oidcSecurityService.logoff().subscribe();
   }
 }

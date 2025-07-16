@@ -3,13 +3,18 @@
   <a routerLink="/hello" routerLinkActive="active">Hello</a>
 </div>
 <div>
-  <button (click)="login()">Login</button>
+  <button class="button" (click)="login()">Login</button>
 </div>
 <div>
-  <button (click)="logout()">Logout</button>
+  <button class="button" (click)="logout()">Logout</button>
 </div>
 <div>
-  <p>Is Authenticated? {{isAuthenticated}}
+  <p>Is Authenticated? {{isAuthenticated}}</p>
+  @if(isAuthenticated) {
+    <p>Welcome {{userName}}!</p>
+  } @else {
+    <p>Please log in to continue.</p>
+  }
 </div>
 <div>
   <router-outlet />
