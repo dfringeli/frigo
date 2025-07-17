@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
     @GetMapping("/hello")
-    @CrossOrigin()
+    @CrossOrigin(origins = "http://localhost:4200/", allowCredentials = "True")
     public String index() {
         return "Hello Frigo!";
     }
