@@ -2,9 +2,9 @@ import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { authConfig } from './auth/auth.config';
-import { provideAuth } from 'angular-auth-oidc-client';
+import { provideAuth, authInterceptor } from 'angular-auth-oidc-client';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -14,7 +14,8 @@ export const appConfig: ApplicationConfig = {
       withComponentInputBinding()
     ),
     provideHttpClient(
-      withFetch()
+      withFetch(),
+      withInterceptors([authInterceptor()])
     ),
     provideAuth(authConfig)
   ]

@@ -6,10 +6,8 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class HelloService {
-  private http = inject(HttpClient);
-
-  constructor() {}
+export class HelloService  {
+  private readonly http = inject(HttpClient);
 
   getHello(): Observable<string> {
     return this.http.get(`${environment.apiUrl}/hello`, {
