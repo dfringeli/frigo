@@ -4,10 +4,30 @@
     "service": "app",
     "runServices": ["app", "db", "adminer", "idp"],
     "workspaceFolder": "/workspaces/frigo/app",
-    "postCreateCommand": "npm i -g @angular/cli && npm install -g npm",
+    "mounts": [
+        {
+            "type": "bind",
+            "source": "../app",
+            "target": "/workspaces/frigo/app"
+        },
+        {
+            "type": "volume",
+            "source": "frigo-app-node_modules",
+            "target": "/workspaces/frigo/app/node_modules"
+        },
+        {
+            "type": "volume",
+            "source": "frigo-app-angular_cache",
+            "target": "/workspaces/frigo/app/.angular"
+        },
+        {
+            "type": "volume",
+            "source": "frigo-app-dist",
+            "target": "/workspaces/frigo/app/dist"
+        }
+    ],
+    "postCreateCommand": "sudo chown -R node .",
     "features": {
-        "ghcr.io/devcontainers/features/git:1": {},
-        "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/devcontainers/features/node:1": {
             "version": "22"
         },
@@ -17,6 +37,12 @@
     },
     "customizations": {
         "vscode": {
+            "settings": {
+                "scm.showActionButton": false,
+                "git.enabled": false,
+                "editor.formatOnSave": true,
+                "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+            },
             "extensions": [
                 "dbaeumer.vscode-eslint",
                 "angular.ng-template",

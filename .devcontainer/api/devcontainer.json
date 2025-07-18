@@ -4,9 +4,20 @@
     "service": "api",
     "runServices": ["api", "db", "adminer", "idp"],
     "workspaceFolder": "/workspaces/frigo/api",
+    "mounts": [
+        {
+            "type": "bind",
+            "source": "../api",
+            "target": "/workspaces/frigo/api"
+        },
+        {
+            "type": "volume",
+            "source": "frigo-api-target",
+            "target": "/workspaces/frigo/api/target"
+        }
+    ],
+    "postCreateCommand": "sudo chown -R vscode .",
     "features": {
-        "ghcr.io/devcontainers/features/git:1": {},
-        "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/devcontainers/features/java:1": {
             "version": "21",
             "installGradle": "false",
@@ -15,6 +26,12 @@
     },
     "customizations": {
         "vscode": {
+            "settings": {
+                "scm.showActionButton": false,
+                "git.enabled": false,
+                "editor.formatOnSave": true,
+                "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+            },
             "extensions": [
                 "vscjava.vscode-java-pack",
                 "vmware.vscode-spring-boot",

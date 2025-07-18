@@ -1,18 +1,10 @@
 services:
   app:
     image: mcr.microsoft.com/devcontainers/typescript-node:22-bookworm
-    volumes:
-      - type: bind
-        source: ..
-        target: /workspaces/frigo
     command: sleep infinity
 
   api:
     image: mcr.microsoft.com/devcontainers/java:21-bookworm
-    volumes:
-      - type: bind
-        source: ..
-        target: /workspaces/frigo
     depends_on:
       - db
     command: sleep infinity
@@ -41,6 +33,8 @@ services:
     ports:
       - 8888:8080
     environment:
+      KC_HOSTNAME: http://localhost:8888
+      KC_HOSTNAME_BACKCHANNEL_DYNAMIC: true
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
       KC_BOOTSTRAP_ADMIN_PASSWORD: admin
     volumes:
