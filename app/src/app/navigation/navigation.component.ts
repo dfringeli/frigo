@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { OidcSecurityService } from 'angular-auth-oidc-client';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-navigation',
@@ -33,7 +34,7 @@ export class NavigationComponent implements OnInit {
       window.sessionStorage.clear();
     }
 
-    window.location.href = "https://us-east-15nrsdyg6x.auth.us-east-1.amazoncognito.com/logout?client_id=om6um3c3jr7n1jr9sr7l0meed&logout_uri=http://localhost:4200";
+    window.location.href = environment.idpLogoutUrl;
   }
 
   toggleNavbar() {
