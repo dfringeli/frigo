@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    uses: .github/workflows/app-build.yml
+    uses: ./.github/workflows/app-build.yml
 
   deploy:
     runs-on: ubuntu-latest
