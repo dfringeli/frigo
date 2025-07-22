@@ -1,0 +1,27 @@
+name: App Deploy
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Download frigo-app artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: frigo-app
+          
+      - name: List files
+        run: ls -R
+        
+      - name: Deploy to AWS S3
+        uses: shallwefootball/upload-s3-action@v1.3.3
+        with:
+          aws_key_id: ${{ secrets.AWS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+          aws_bucket: ${{ secrets.AWS_BUCKET }}
+          source_dir: 'frigo-app/browser'
