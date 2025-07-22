@@ -14,6 +14,9 @@ jobs:
     environment: frigo-app
     
     steps:
+      - name: Build frigo-app
+        uses: ./.github/workflows/app-build.yml
+        
       - name: Download frigo-app artifact
         uses: actions/download-artifact@v4
         with:
