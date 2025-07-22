@@ -2,7 +2,7 @@
     "name": "App Dev Container",
     "dockerComposeFile": ["../compose.yaml"],
     "service": "app",
-    "runServices": ["app", "idp"],
+    "runServices": ["app"],
     "workspaceFolder": "/workspaces/frigo/app",
     "mounts": [
         {

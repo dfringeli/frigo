@@ -2,7 +2,7 @@
     "name": "API Dev Container",
     "dockerComposeFile": ["../compose.yaml"],
     "service": "api",
-    "runServices": ["api", "idp"],
+    "runServices": ["api"],
     "workspaceFolder": "/workspaces/frigo/api",
     "mounts": [
         {
