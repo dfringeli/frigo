@@ -8,18 +8,15 @@ on:
   workflow_dispatch:
 
 jobs:
+  build:
+    uses: .github/workflows/app-build.yml
+
   deploy:
     runs-on: ubuntu-latest
 
     environment: frigo-app
 
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v4
-
-      - name: Build frigo-app
-        uses: .github/workflows/app-build.yml
-        
+    steps:        
       - name: Download frigo-app artifact
         uses: actions/download-artifact@v4
         with:
