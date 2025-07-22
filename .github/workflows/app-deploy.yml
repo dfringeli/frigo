@@ -16,9 +16,9 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v4
-        
+
       - name: Build frigo-app
-        uses: ./.github/workflows/app-build.yml
+        uses: .github/workflows/app-build.yml
         
       - name: Download frigo-app artifact
         uses: actions/download-artifact@v4
