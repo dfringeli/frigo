@@ -23,9 +23,6 @@ jobs:
           name: frigo-app
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path: frigo-app
-          
-      - name: List files
-        run: ls -R
         
       - name: Deploy to AWS S3
         uses: shallwefootball/upload-s3-action@v1.3.3
@@ -34,3 +31,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
           aws_bucket: ${{ secrets.AWS_BUCKET }}
           source_dir: 'frigo-app'
+          destination_dir: 'frigo-app'
