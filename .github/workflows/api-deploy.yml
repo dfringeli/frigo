@@ -27,6 +27,7 @@ jobs:
       - name: Get frigo-api Version
         id: version
         run: |
+          cd frigo-api
           ls -Ral
           VERSION=$(ls frigo-api-*.jar | sed 's/.*-\([0-9].*\)\.jar$/\1/')
           echo "version=$VERSION" >> $GITHUB_OUTPUT
@@ -42,5 +43,5 @@ jobs:
           version_label: ${{ steps.version.outputs.version }}
           version_description: ${{github.SHA}}
           region: ${{ secrets.AWS_REGION }}
-          deployment_package: ${{ steps.version.outputs.jar_file }}
+          deployment_package: frigo-api/${{ steps.version.outputs.jar_file }}
 
