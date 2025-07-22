@@ -27,6 +27,7 @@ jobs:
       - name: Get frigo-api Version
         id: version
         run: |
+          ls -Ral
           VERSION=$(ls frigo-api-*.jar | sed 's/.*-\([0-9].*\)\.jar$/\1/')
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "jar_file=$(ls frigo-api-*.jar)" >> $GITHUB_OUTPUT
