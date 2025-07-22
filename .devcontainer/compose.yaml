@@ -5,28 +5,7 @@ services:
 
   api:
     image: mcr.microsoft.com/devcontainers/java:21-bookworm
-    depends_on:
-      - db
     command: sleep infinity
-
-  db:
-    image: mariadb:latest
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: frigo
-      MYSQL_USER: frigo
-      MYSQL_PASSWORD: frigo
-    volumes:
-      - mariadb_data:/var/lib/mysql
-  
-  adminer:
-    image: adminer:latest
-    restart: always
-    ports:
-      - 81:8080
-    depends_on:
-      - db
 
   idp:
     image: quay.io/keycloak/keycloak:latest
@@ -41,5 +20,24 @@ services:
       - ./idp/frigo-realm.json:/opt/keycloak/data/import/frigo-realm.json:ro
     command: start-dev --import-realm
 
-volumes:
-  mariadb_data:
+#   db:
+#     image: mariadb:latest
+#     restart: always
+#     environment:
+#       MYSQL_ROOT_PASSWORD: root
+#       MYSQL_DATABASE: frigo
+#       MYSQL_USER: frigo
+#       MYSQL_PASSWORD: frigo
+#     volumes:
+#       - mariadb_data:/var/lib/mysql
+  
+#   adminer:
+#     image: adminer:latest
+#     restart: always
+#     ports:
+#       - 81:8080
+#     depends_on:
+#       - db
+
+# volumes:
+#   mariadb_data:
